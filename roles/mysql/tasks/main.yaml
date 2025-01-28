@@ -7,6 +7,14 @@
     name: mysqld
     enabled: yes
     state: started
+- name: python libraries
+  ansible.builtin.pip:
+    name:  "{{item}}"
+   executable: pip3.9
+  loop:
+  - cryptography
+  - PyMySQL
+
 - name: connect to mysql
   community.mysql.mysql_info:
     login_user: "{{mysql_user}}"
