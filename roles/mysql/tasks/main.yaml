@@ -16,6 +16,8 @@
   - PyMySQL
 
 - name: connect to mysql
+  tags:
+  - run
   community.mysql.mysql_info:
     login_user: "{{mysql_user}}"
     login_password: "{{ lookup('amazon.aws.aws_ssm', '/expense/mysql/mysql_root_password', decrypt=True ) }}"
